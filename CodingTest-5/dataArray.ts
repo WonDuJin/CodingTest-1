@@ -4,24 +4,25 @@ const inputData1 = [6, 2, 9, 8, 4, 0, 8, 5, 7, 1];
 
 //내가 시도한 인터페이스 방법이었으나 이 방법이 아닌 것 같음
 interface interfaceTest {
-  one : number,
-  two : number,
-  three : number,
-  four : number,
-  five : number,
+  one : number;
+  two : number;
+  three : number;
+  four : number;
+  five : number;
 }
 
 
 //상희에게 물어봐서 사용법을 알게 되었으나 아직 더 공부가 필요하므로 주석처리하였음(내가한게아니므로)
-// interface sortArrays {
-//   (arr:number[]):object
-// }
+interface sortArrays {
+  a?:number;
+  (arr:number[]):{}
+}
 
 //스왑을 시키기 위한 함수
 const sortArray1:sortArrays=(arr)=>{
 
   //arr의 값을 변수에 저장하고, 서로의 값을 스왑하는 함수
-const swap = (a) =>{
+const swap = (a:number) =>{
   let one = arr[a];
   let two = arr[a+1]; 
   
@@ -40,9 +41,9 @@ const swap = (a) =>{
   //반복문 1개면 index 0번쨰와 1번쨰의 값을 비교
   //반복문은 한 번만 사용하면 비교하고 바로 종료되기 때문에 반복문을 한 번 더 사용했음
   for(let i = 0; i < arr.length; i++){    
-    step ++
     for (let j = 0; j<arr.length; j ++){
       if(arr[j] > arr[j+1]){
+        step ++
         min = swap(j)
       }
     } 
@@ -58,7 +59,17 @@ const swap = (a) =>{
   //map?을 사용해야하나..?
   //위 객체를 리터럴 형식이 아닌 다른 방법이 필요 할 것 같음.
 
-  console.log()
+  
+  const objectData:interfaceTest ={
+    "one" : min[0],
+    "two" : min[1],
+    "three" : min[2],
+    "four" : min[3],
+    "five" : min[4],
+  }
+  
+  console.log(objectData)
+
   return {}
 }
 //조건 3 배열을 인자로 주기
