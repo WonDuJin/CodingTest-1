@@ -30,3 +30,5 @@ def text_listup():
       print(Alphabet)
 
 text_listup()
+
+#조건 3부터 풀이 못했음... 추후 풀이 예정입니다.
