@@ -17,22 +17,26 @@ const linefiv1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 const bingo =(array1,array2,array3,array4,array5)=>{
   
+  //랜덤으로 숫자를 구하는 함수 => splice에서 사용할 예정
   const randomNumber =(length)=>{
     number =  Math.floor(Math.random()*length);    
     return number
   } 
   // console.log(randomNumber(10))
 
-
+  // splice로 배열의 값을 수정
   const changeNumber=(array)=>{
     array.splice(randomNumber(array.length),1,1)
     console.log(array)
   }
+
+  // splice로 배열의 값 삭제
   const delNumber =(array,index)=>{
     array.splice(index,1)
     console.log(array)
   }
 
+  // 값을 수정하는 함수에 매개변수로 배열들을 집어넣고 함수로 묶어주었음
   const allchangeFun =() =>{
     changeNumber(array1)
     changeNumber(array2)
@@ -41,6 +45,7 @@ const bingo =(array1,array2,array3,array4,array5)=>{
     changeNumber(array5)
   }  
 
+  // 값을 삭제하는 함수에 배열들을 집어넣고 함수로 묶어주멌음
   const del=()=>{
     delNumber(array1)
     delNumber(array2)
@@ -48,19 +53,19 @@ const bingo =(array1,array2,array3,array4,array5)=>{
     delNumber(array4)
     delNumber(array5)
   }
-
   
+  //Settimeout으로 함수를 실행하려고했으나 실패함 ㅠ
   let test = setTimeout(async()=>{
+    //인덱스 0번째 값이 모두 1이면 빅토리 (배열이 전부 삭제되고 index 0번째 값만 남는 것을 이용하려고했으나 0번째가 빙고로 나와버리면 승리가 뜨는 현상이 있음. 수정 필요!)
     if(array1[0]===1 && array2[0]===1 && array3[0]===1 && array4[0]===1 && array5[0]===1){
       console.log("승리!")
     }
     else{
+      //if문에 조건이 아니라면 반복문을 돌려 배열의 값을 0->1로 바꾸어주는 반복문 실행 모두 모든 배열의 동일한 인덱스 값의 원소가 1이 되었을때 해당 인덱스 삭제후 빙고! 출력
       for(let i=0; i < array1.length;i++){
-      delay+=1000
-      
+      delay+=1000      
 
-      if(array1[i]===1 && array2[i]===1 && array3[i]===1 && array4[i]===1 && array5[i]===1){
-        
+      if(array1[i]===1 && array2[i]===1 && array3[i]===1 && array4[i]===1 && array5[i]===1){        
         del()
         console.log("빙고!")      
       }
@@ -69,9 +74,6 @@ const bingo =(array1,array2,array3,array4,array5)=>{
   }
 },1000)
 }
-  
-  
-
 bingo(lineOne1,lineTwo1,lineThr1,lineFou1,linefiv1)
 
 
