@@ -1,0 +1,21 @@
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title><div id="root">hello</div>
+<form action = "/name" method="POST">
+<input type="text" name="name">
+<input type="submit">
+</form>
+<form action ="/soccer" method="POST">
+<button style=width:200px;height:30px;>3차전 결과</button>
+<p>가나 0 : 1 우루과이</p>
+<p>대한민국 3 : 0 포르투갈</p>
+</form>
+<button style=width:200px;height:30px; onclick= "goHome()">홈으로 이동</button>
+
+<script>
+function goHome(){
+  location.href = "http://localhost:5678/"
+}
+
+</script>
