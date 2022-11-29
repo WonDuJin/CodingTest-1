@@ -1,9 +1,37 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title><div id="root">hello</div>
+  <title>Document</title><div id="root" style="color:black">hello</div>
+
 <form action = "/name" method="POST">
 <input type="text" name="name">
 <input type="submit">
 </form>
+
+
+<form action ="/soccer" method="POST">
+<button style=width:200px;height:30px;>3차전 결과</button>
+</form>
+
+
+<form action ="/color" method="POST">
+<input id="color" type="color">
+<button style=width:200px;height:30px; onclick = "changeColor()">컬러바꾸기</button>
+<script>
+function changeColor(){
+  document.getElementById("root").style.backgroundColor = document.getElementById("color").value;
+}
+</script>
+</form>
+
+<button style=width:200px;height:30px; onclick= "goHome()">홈으로 이동</button>
+
+<script>
+function goHome(){
+  location.href = "http://localhost:5678/"
+}
+
+</script>
+
+
 <ul><li>메뉴</li></ul><footer>kdt 클래스</footer>

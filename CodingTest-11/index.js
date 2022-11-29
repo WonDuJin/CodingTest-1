@@ -33,26 +33,48 @@ const server  = http.createServer((req,res)=>{
   if (req.method==="POST","GET"){
     let getString = req.url;
     switch (getString){
+      case "/":
+        staticRoute('./html.txt', 200, 'text/html');
+        break
+      case "/soccer":        
+          staticRoute("./soccer.txt",200,"text/html");     
+        break;
+        
       case "/name":
         let test =''
         req.on('data',(data)=>{
-          test = data          
+          //데이터 자체가 인코딩 되어있어서 한글출력이 웹브라우저에서 한글이 인코딩 된상태로 출력이 되므로 decodeURI로 디코딩을 해주었다. (뭔가 알집개념인 것 같다.)
+          test = decodeURI(data)
+          // console.log(test)         
         })
-        req.on('end',()=>{
-          
-          fs.writeFileSync('postHTML.txt',head + main + test + header+ footer)          
+        req.on('end',()=>{           
+          // console.log(test)
+          fs.writeFileSync('postHTML.txt',head + main + test + header+ footer)  
+          // console.log(test)        
           staticRoute("./postHTML.txt",200,"text/html");  
         })
         break;
-      case "/":
-        staticRoute('./html.txt', 200, 'text/html')
-      }
+
+      case "/color":
+        let changeColor = ''
+        req.on('data',(data)=>{
+          console.log(data)
+          changeColor  = data 
+          console.log(changeColor)       
+        })
+        req.on('end',()=>{
+          fs.writeFileSync('changeColor.txt',head + main + changeColor)
+          staticRoute("./changeColor.txt",200,"text/html");          
+        })
+        break;
+        
+      }      
     }  
   });
 
 
 
-  server.listen(5678,(err)=>{
+  server.listen(5678,(err)=>{    
     console.log("서버 돌아가는중....");
     if (err) throw err;
   });
