@@ -1,7 +1,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title><div id="root" style="color:black">hello</div>
+  <title>Document</title><div id="root">hello</div>
 
 <!--input에 텍스트를 입력하면 출력한다-->
 <form action = "/name" method="POST">
@@ -10,7 +10,7 @@
 </form>
 
 <!--3차전 결과를 클릭하면 3차전 경기 결과 텍스트가 출력된다-->
-<form action ="/soccer" method="POST">
+<form action ="/soccer" name="" method="POST">
 <button style=width:200px;height:30px;>3차전 결과</button>
 </form>
 
@@ -18,12 +18,15 @@
 <form action ="/color" method="POST">
 <input id="color" type="color">
 <button style=width:200px;height:30px; onclick = "changeColor()">컬러바꾸기</button>
+</form>
 <script>
 function changeColor(){
-  document.getElementById("root").style.backgroundColor = document.getElementById("color").value;
+  let root = document.getElementById("root");
+  let colorValue = document.getElementById("color").value;
+
+  root.style.backgroundColor = colorValue;
 }
 </script>
-</form>
 
 <!--홈으로 이동 하는 버튼-->
 <button style=width:200px;height:30px; onclick= "goHome()">홈으로 이동</button>
