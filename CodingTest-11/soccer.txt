@@ -2,10 +2,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title><div id="root">hello</div>
+
+<!--input에 텍스트를 입력하면 출력한다-->
 <form action = "/name" method="POST">
 <input type="text" name="name">
 <input type="submit">
 </form>
+
+<!--3차전 결과를 클릭하면 3차전 경기 결과 텍스트가 출력된다-->
 <form action ="/soccer" method="POST">
 <button style=width:200px;height:30px;>3차전 결과</button>
 <p>가나 0 : 1 우루과이</p>
@@ -13,6 +17,7 @@
 </form>
 <button style=width:200px;height:30px; onclick= "goHome()">홈으로 이동</button>
 
+<!--홈으로 이동 하는 버튼-->
 <script>
 function goHome(){
   location.href = "http://localhost:5678/"
