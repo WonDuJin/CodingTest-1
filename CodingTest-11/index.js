@@ -10,7 +10,7 @@ const main = fs.readFileSync("./main.txt",'utf-8')
 const head = fs.readFileSync("./head.txt",'utf-8')
 const footer =fs.readFileSync("./footer.txt",'utf-8')
 
-fs.writeFileSync('html.txt',head + body + main + header+ footer)
+fs.writeFileSync('html.txt',head+ body + main + header+ footer)
 
 const server  = http.createServer((req,res)=>{
 
@@ -32,6 +32,7 @@ const server  = http.createServer((req,res)=>{
 
   if (req.method==="POST","GET"){
     let getString = req.url;
+    console.log(getString)
     switch (getString){
       case "/":
         staticRoute('./html.txt', 200, 'text/html');
@@ -68,7 +69,9 @@ const server  = http.createServer((req,res)=>{
           staticRoute("./changeColor.txt",200,"text/html");          
         })
         break;
-        
+      case "/style.css":
+        staticRoute("./style.css",200,"text/css");        
+        break;
       }      
     }  
   });
