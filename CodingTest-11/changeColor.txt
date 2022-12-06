@@ -1,6 +1,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css"/>
   <title>Document</title><div id="root">hello</div>
 
 <!--input에 텍스트를 입력하면 출력한다-->
@@ -15,7 +16,7 @@
 </form>
 
 <!--input 에서 컬러를 선택하고 컬러바꾸기 버튼을 클릭하면 컬러가 바뀐다 (하지만 잠깐만 바뀌고 다시 원상복구되는 현상이 있음 아마 div의 스타일값이 바뀌지 않아서 발생하는 것 같음)-->
-<form action ="/color" method="POST">
+<form action ="/color" name ="" method="POST">
 <input id="color" type="color">
 <button style=width:200px;height:30px; onclick = "changeColor()">컬러바꾸기</button>
 </form>

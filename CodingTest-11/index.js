@@ -22,14 +22,6 @@ const server  = http.createServer((req,res)=>{
     res.write(readData);
     res.end();
   }
-  
-
-  // if(req.method === "GET"){
-  //   if(req.url === '/'){
-  //     staticRoute('./html.txt', 200, 'text/html')
-  //   }
-  // }
-
   if (req.method==="POST","GET"){
     let getString = req.url;
     console.log(getString)
